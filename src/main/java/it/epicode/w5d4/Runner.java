@@ -15,19 +15,23 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
+import java.util.List;
+
 @Component
 public class Runner implements CommandLineRunner {
     @Autowired
-    EdificiService edificioService;
+    static EdificiService edificioService;
     @Autowired
-    PrenotazioniService prenotazioniService;
+    static PrenotazioniService prenotazioniService;
     @Autowired
-    PostazioniService postazioniService;
+    static PostazioniService postazioniService;
     @Autowired
-    UtentiService utentiService;
+    static UtentiService utentiService;
 
     final static Logger logger = LoggerFactory.getLogger("w5d4");
 
+    @Override
     public void run (String... args) throws Exception{
 
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(W5d4Application.class);
@@ -44,11 +48,22 @@ public class Runner implements CommandLineRunner {
         Utenti u = ctx.getBean("marioRossi", Utenti.class);
         utentiService.saveUtente(u);
         logger.info("utente aggiunto");
+        Prenotazioni p = ctx.getBean("prenotazione1", Prenotazioni.class);
+        insertReservation(post,p);
 
 
         Prenotazioni p = ctx.getBean("prenotazione1", Prenotazioni.class);
             prenotazioniService.savePrenotazioni(p);
             logger.info("prenotazione aggiunta");
+    }
+
+    public void insertReservation (Postazioni postazione, Prenotazioni prenotazione){
+        List<LocalDate> list = postazione.getPrenotazioni().stream().map(prenotazioni -> prenotazione.getData()).toList();
+        if (list.contains(prenotazione.getData())){
+            logger.error("Postazione occupata in data :" + prenotazione.getData());
+        } else {
+           prenotazioniService.savePrenotazioni(prenotazione);
+        }
     }
 
 }
