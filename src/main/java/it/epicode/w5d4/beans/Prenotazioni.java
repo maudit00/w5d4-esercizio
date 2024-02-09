@@ -13,7 +13,7 @@ public class Prenotazioni {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_prenotazioni")
     @SequenceGenerator(name = "id_prenotazioni", initialValue = 1, allocationSize = 1)
     private int id;
-    @ManyToOne (cascade = CascadeType.REMOVE)
+    @ManyToOne
     @JoinColumn( name = "id_postazione")
     private Postazioni postazione;
     @ManyToOne(cascade = CascadeType.REMOVE)
