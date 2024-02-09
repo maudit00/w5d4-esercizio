@@ -42,14 +42,11 @@ public class Runner implements CommandLineRunner {
         postazioniService.savePostazione(post);
         logger.info("postazione aggiunta");
 
-        Postazioni post1 = postazioniService.
 
 
         Utenti u = ctx.getBean("marioRossi", Utenti.class);
         utentiService.saveUtente(u);
         logger.info("utente aggiunto");
-        Prenotazioni p = ctx.getBean("prenotazione1", Prenotazioni.class);
-        insertReservation(post,p);
 
 
         Prenotazioni p = ctx.getBean("prenotazione1", Prenotazioni.class);
@@ -57,13 +54,6 @@ public class Runner implements CommandLineRunner {
             logger.info("prenotazione aggiunta");
     }
 
-    public void insertReservation (Postazioni postazione, Prenotazioni prenotazione){
-        List<LocalDate> list = postazione.getPrenotazioni().stream().map(prenotazioni -> prenotazione.getData()).toList();
-        if (list.contains(prenotazione.getData())){
-            logger.error("Postazione occupata in data :" + prenotazione.getData());
-        } else {
-           prenotazioniService.savePrenotazioni(prenotazione);
-        }
-    }
+
 
 }
