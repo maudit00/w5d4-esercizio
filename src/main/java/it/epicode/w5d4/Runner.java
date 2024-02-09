@@ -30,7 +30,7 @@ public class Runner implements CommandLineRunner {
 
     public void run (String... args) throws Exception{
 
-        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(W5d4Application.class);
         Edifici e = ctx.getBean("palazzoFrancia", Edifici.class);
         edificioService.saveEdificio(e);
         logger.info("edificio aggiunto");

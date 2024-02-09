@@ -40,7 +40,7 @@ public Postazioni postazione1(){
     return u;
 }
 
-@Bean
+@Bean("prenotazione1")
     public Prenotazioni prenotazion1(){
     Prenotazioni p = new Prenotazioni();
     p.setData(LocalDate.now());

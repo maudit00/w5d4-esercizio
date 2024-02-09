@@ -21,12 +21,4 @@ public class Prenotazioni {
     private Utenti utente;
     private LocalDate data;
 
-    public void setPostazione(Postazioni postazione) {
-        long conteggio = postazione.getPrenotazioni().stream().filter(prenotazioni -> prenotazioni.getData() == this.data).count();
-        if ( conteggio > 0)
-            System.out.println("Postazione occupata");
-        else {
-            this.postazione = postazione;
-        }
-    }
 }
