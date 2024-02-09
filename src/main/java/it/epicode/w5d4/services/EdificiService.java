@@ -12,11 +12,11 @@ public class EdificiService {
     @Autowired
     private EdificiDao edificiDao;
 
-    public void saveUtente(Edifici edificio) {
+    public void saveEdificio(Edifici edificio) {
         edificiDao.save(edificio);
     }
 
-    public void updateUtente(Edifici edificio){
+    public void updateEdificio(Edifici edificio){
         Edifici e = edificiDao.findById(edificio.getId()).get();
         e.setCittà(edificio.getCittà());
         e.setNome(edificio.getNome());
