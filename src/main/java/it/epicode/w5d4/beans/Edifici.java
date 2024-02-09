@@ -8,7 +8,6 @@ import java.util.List;
 
 @Data
 @Entity
-@Component
 public class Edifici {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

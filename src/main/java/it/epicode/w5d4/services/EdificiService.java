@@ -1,9 +1,7 @@
 package it.epicode.w5d4.services;
 
 import it.epicode.w5d4.beans.Edifici;
-import it.epicode.w5d4.beans.Postazioni;
 import it.epicode.w5d4.repository.EdificiDao;
-import it.epicode.w5d4.repository.PostazioniDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

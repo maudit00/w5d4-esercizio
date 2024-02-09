@@ -8,7 +8,6 @@ import java.time.LocalDate;
 
 @Data
 @Entity
-@Component
 public class Prenotazioni {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_prenotazioni")
