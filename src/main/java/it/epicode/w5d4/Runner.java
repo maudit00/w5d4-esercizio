@@ -37,17 +37,18 @@ public class Runner implements CommandLineRunner {
         Postazioni post = ctx.getBean("postazione1", Postazioni.class);
         postazioniService.savePostazione(post);
         logger.info("postazione aggiunta");
+
+        Postazioni post1 = postazioniService.
+
+
         Utenti u = ctx.getBean("marioRossi", Utenti.class);
         utentiService.saveUtente(u);
         logger.info("utente aggiunto");
-        Prenotazioni p = ctx.getBean("prenotazione1", Prenotazioni.class);
-        if ( p.getPostazione().getPrenotazioni().stream().map(prenotazioni-> prenotazioni.getData()).anyMatch(prenotazioni -> prenotazioni == p.getData())){
-            logger.error("postazione occupata per quel giorno");
-        } else {
-            prenotazioniService.savePrenotazioni(p);
-            logger.info("prenotazione aggiunto");
-        }
 
+
+        Prenotazioni p = ctx.getBean("prenotazione1", Prenotazioni.class);
+            prenotazioniService.savePrenotazioni(p);
+            logger.info("prenotazione aggiunta");
     }
 
 }

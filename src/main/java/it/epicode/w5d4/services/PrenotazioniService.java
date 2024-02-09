@@ -6,6 +6,8 @@ import it.epicode.w5d4.repository.PrenotazioniDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PrenotazioniService {
     @Autowired
@@ -13,9 +15,12 @@ public class PrenotazioniService {
 
     public void savePrenotazioni(Prenotazioni prenotazione) {
         Postazioni postazione = prenotazione.getPostazione();
-
-        prenotazioniDao.save(prenotazione);
-
+        List<Prenotazioni> prenotazioniDaoByDateAndPostId = prenotazioniDao.findByDateAndPostId(prenotazione.getData(),prenotazione.getPostazione().getId());
+        if (prenotazioniDaoByDateAndPostId.isEmpty()){
+            prenotazioniDao.save(prenotazione);
+        } else{
+            System.out.println("Posto occupato ");
+        }
     }
 
     public void updatePrenotazioni(Prenotazioni prenotazione){

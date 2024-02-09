@@ -49,4 +49,13 @@ public Postazioni postazione1(){
     return p;
 }
 
+
+    @Bean("prenotazione2")
+    public Prenotazioni prenotazion2(){
+        Prenotazioni p = new Prenotazioni();
+        p.setData(LocalDate.now());
+        p.setUtente(marioRossi());
+        return p;
+    }
+
 }
