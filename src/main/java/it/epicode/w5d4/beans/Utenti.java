@@ -14,7 +14,8 @@ public class Utenti {
     private int id;
 
     private String username;
-    private String nomeCompleto;
+    private String nome;
+    private String cognome;
     private String email;
 
 }

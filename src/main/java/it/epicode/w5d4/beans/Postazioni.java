@@ -19,8 +19,8 @@ public class Postazioni {
     @Enumerated(EnumType.STRING)
     private TipoPostazione tipoPostazione;
     private int nMassimoOccupanti;
-    @OneToOne(cascade = CascadeType.REMOVE)
-    @JoinColumn (name = "id_edificio", referencedColumnName = "id")
+    @ManyToOne
+    @JoinColumn (name = "id_edificio")
     private Edifici edificio;
     @OneToMany
     private List<Prenotazioni> prenotazioni;

@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Data
 @Entity
 @Component
@@ -15,6 +17,6 @@ public class Edifici {
     private String nome;
     private String indirizzo;
     private String città;
-    @OneToOne (mappedBy = "edificio")
-    private Postazioni postazione;
+    @OneToMany(mappedBy = "edificio")
+    private List<Postazioni> postazioni;
 }

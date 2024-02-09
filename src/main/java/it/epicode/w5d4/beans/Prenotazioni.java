@@ -14,7 +14,11 @@ public class Prenotazioni {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_prenotazioni")
     @SequenceGenerator(name = "id_prenotazioni", initialValue = 1, allocationSize = 1)
     private int id;
-    private Edifici edificio;
+    @ManyToOne
+    @JoinColumn( name = "id_postazione")
+    private Postazioni postazione;
+    @ManyToOne
+    @JoinColumn( name = "id_utente")
     private Utenti utente;
     private LocalDate data;
 }
