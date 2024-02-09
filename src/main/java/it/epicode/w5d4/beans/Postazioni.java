@@ -21,7 +21,7 @@ public class Postazioni {
     @ManyToOne
     @JoinColumn (name = "id_edificio")
     private Edifici edificio;
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Prenotazioni> prenotazioni;
 
 }

@@ -16,8 +16,17 @@ public class Prenotazioni {
     @ManyToOne
     @JoinColumn( name = "id_postazione")
     private Postazioni postazione;
-    @ManyToOne(cascade = CascadeType.REMOVE)
+    @ManyToOne
     @JoinColumn( name = "id_utente")
     private Utenti utente;
     private LocalDate data;
+
+    public void setPostazione(Postazioni postazione) {
+        long conteggio = postazione.getPrenotazioni().stream().filter(prenotazioni -> prenotazioni.getData() == this.data).count();
+        if ( conteggio > 0)
+            System.out.println("Postazione occupata");
+        else {
+            this.postazione = postazione;
+        }
+    }
 }

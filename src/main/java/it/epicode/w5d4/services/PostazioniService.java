@@ -10,11 +10,11 @@ public class PostazioniService {
     @Autowired
     private PostazioniDao postazioniDao;
 
-    public void saveUtente(Postazioni postazione) {
+    public void savePostazione(Postazioni postazione) {
         postazioniDao.save(postazione);
     }
 
-    public void updateUtente(Postazioni postazione){
+    public void updatePostazione(Postazioni postazione){
         Postazioni p = postazioniDao.findById(postazione.getId()).get();
         p.setTipoPostazione(postazione.getTipoPostazione());
         p.setEdificio(postazione.getEdificio());
