@@ -13,7 +13,7 @@ public class AppConfig {
 @Bean("palazzoFrancia")
     public Edifici palazzoFrancia(){
     Edifici e = new Edifici();
-    e.setCittà("Milano");
+    e.setCitta("Milano");
     e.setNome("Palazzo Francia");
     e.setIndirizzo("Via dei salici");
     return e;
