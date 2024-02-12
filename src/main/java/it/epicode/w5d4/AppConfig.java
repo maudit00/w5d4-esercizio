@@ -55,6 +55,7 @@ public Postazioni postazione1(){
         Prenotazioni p = new Prenotazioni();
         p.setData(LocalDate.now());
         p.setUtente(marioRossi());
+        p.setPostazione(postazione1());
         return p;
     }
 

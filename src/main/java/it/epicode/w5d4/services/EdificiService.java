@@ -16,7 +16,7 @@ public class EdificiService {
 
     public void updateEdificio(Edifici edificio){
         Edifici e = edificiDao.findById(edificio.getId()).get();
-        e.setCittà(edificio.getCittà());
+        e.setCitta(edificio.getCitta());
         e.setNome(edificio.getNome());
         e.setIndirizzo(edificio.getIndirizzo());
         e.setPostazioni(edificio.getPostazioni());
